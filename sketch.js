@@ -8,6 +8,7 @@ let halfWidth = windowWidth/2;
 let ocean;
 let shells = [];
 let shell;
+let sculpture;
 
 // the frame rate (frames per second)
 var fps = 30;
@@ -17,13 +18,14 @@ var startMillis;
 
 function preload() {
   // female_leg = loadModel('femaleleg/femaleleg.obj');
-  shell = loadModel('Locust/Locust.obj', true);
+  shell = loadModel('wrench/wrench.obj', true);
+  sculpture = loadImage('1.png');
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight, WEBGL);
   leaves = loadImage('GreenLeaves2.jpg');
-  ocean = loadImage('Iraq.jpg');
+  ocean = loadImage('big.jpg');
   frameRate(fps);
   // capturer = new CCapture({ format: 'png', framerate: fps });
 
@@ -73,13 +75,15 @@ function draw() {
 
   // camera rotation 
 
-  camera(0, 20 + sin(frameCount * (0.05)) * 10, 200 + sin(frameCount * 0.001) * 3000, 0, 0, 0, 0, 1, 0);
+  camera(0, 20 + sin(frameCount * (0.05)) * 10, 200 + sin(frameCount * 0.01) * 3000, 0, 0, 0, 0, 1, 0);
 
   // -z pink sky
   push();
   imageMode(CENTER);
   translate(0, 0, -halfHeight*3.01);
   image(ocean, 0, 0, windowWidth*4.5, windowHeight*4.5);
+  translate(0, 0, -10);
+  image(sculpture, 0, 0, windowWidth/2, windowHeight/2);
   pop();
 
   // +z pink sky
@@ -183,7 +187,7 @@ class Shells {
   }
 
   display() {
-  scale(1.042); 
+  scale(1.05); 
   fill(250, 175, 230);
   model(shell);
   }
