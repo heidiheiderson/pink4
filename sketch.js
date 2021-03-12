@@ -112,13 +112,13 @@ function draw() {
 
     push();
 
-    //first side "purple"
-    directionalLight(176, 145, 230, -0.5, -0.5, -1);
-    //second side "tomato"
-    directionalLight(247, 113, 72, 0.5, 0.5, 5);
+    //first side "green"
+    directionalLight(41, 207, 88, -0.5, -0.5, -1);
+    //second side "blue"
+    directionalLight(41, 60, 207, 0.5, 0.5, 5);
 
-    pointLight(176, 145, 230, -0.5, -0.5, -1);
-    pointLight(247, 113, 72, 0.5, 0.5, 5);
+    pointLight(41, 207, 88, -0.5, -0.5, -1);
+    pointLight(41, 60, 207,  0.5, 0.5, 5);
   
     translate(0, -100, -100);
     specularMaterial(255);
@@ -146,14 +146,16 @@ function draw() {
   angle += 0.0025;
 
   //lights on centerpiece
-    //green on purple
-    directionalLight(0, 255, 85, -1, 0, -1);
+    //blue 
+    directionalLight(0, 86, 247, -1, 0, -1);
    
-   //fuschia
-    directionalLight(237, 52, 151, 1, 0, 0);
+   //pink
+    directionalLight(245, 83, 237, 1, 0, 0);
 
-    //blue on tomato
-    directionalLight(77, 52, 237, 0, 0, 1);
+    //fuschia
+    directionalLight(247, 161, 0, 0, 0, 1);
+    //including fuschia color in case helen isn't into the orange
+    //198, 0, 212,
 
 
   //
