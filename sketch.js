@@ -8,7 +8,12 @@ let halfWidth = windowWidth/2;
 let ocean;
 let shells = [];
 let shell;
-let sculpture;
+
+let sculpture1;
+let sculpture11;
+let sculpture12;
+let sculpture13;
+let lineup;
 
 // the frame rate (frames per second)
 var fps = 30;
@@ -19,12 +24,15 @@ var startMillis;
 function preload() {
   // female_leg = loadModel('femaleleg/femaleleg.obj');
   shell = loadModel('wrench/wrench.obj', true);
-  sculpture = loadImage('1.png');
+  sculpture1 = loadImage('1.png');
+  sculpture11 = loadImage('11.png');
+  sculpture12 = loadImage('12.png');
+  sculpture13 = loadImage('13.png');
+  lineup = loadImage('lineup_pink4_pink noise.png');
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight, WEBGL);
-  leaves = loadImage('GreenLeaves2.jpg');
   ocean = loadImage('big.jpg');
   frameRate(fps);
   // capturer = new CCapture({ format: 'png', framerate: fps });
@@ -77,20 +85,59 @@ function draw() {
 
   camera(0, 20 + sin(frameCount * (0.05)) * 10, 200 + sin(frameCount * 0.01) * 3000, 0, 0, 0, 0, 1, 0);
 
-  // -z pink sky
+  // -z pink sky, second one you see
   push();
   imageMode(CENTER);
   translate(0, 0, -halfHeight*3.01);
   image(ocean, 0, 0, windowWidth*4.5, windowHeight*4.5);
-  translate(0, 0, -10);
-  image(sculpture, 0, 0, windowWidth/2, windowHeight/2);
+  translate(0, 0, -300);
+
+    push();
+    rotateY(PI);
+    translate(50, 0, 0);
+    image(lineup, 0, 0);
+    lineup.resize(0, halfHeight-100);
+    pop();
+
+    push();
+    translate(halfWidth/2, 0, 0);
+    image(sculpture1, 0, 0);
+    sculpture1.resize(0, halfHeight * 1.5);
+    pop();
+
+    push();
+    translate(-halfWidth/2 - 40, -100, 1);
+    image(sculpture13, 0, 0);
+    sculpture13.resize(0, halfHeight * 1.5);
+    pop();
+
   pop();
 
-  // +z pink sky
+  // +z pink sky, first one you see,
   push();
   imageMode(CENTER);
   translate(0, 0, halfHeight*4.01);
   image(ocean, 0, 0, windowWidth*5.5, windowHeight*5.5);
+  translate(0, 0, 300);
+
+    push();
+    translate(50, 0, 0);
+    image(lineup, 0, 0);
+    lineup.resize(0, halfHeight-100);
+    pop();
+
+    push();
+    translate(-halfWidth/2, 0, 0);
+    image(sculpture12, 0, 0);
+    sculpture12.resize(0, halfHeight * 1.5);
+    pop();
+
+    push();
+    translate(halfWidth/2, 0, 0);
+    image(sculpture11, -40, 0);
+    sculpture11.resize(0, halfHeight * 1.5);
+    pop();
+
   pop();
 
   //rectangles
