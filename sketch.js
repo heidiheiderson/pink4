@@ -106,8 +106,8 @@ function draw() {
     pop();
 
     push();
-    translate(-halfWidth/2 - 40, -100, 1);
-    image(sculpture13, 0, 0);
+    translate(-halfWidth/2 - 40, 0, 1);
+    image(sculpture13, -50, 0);
     sculpture13.resize(0, halfHeight * 1.5);
     pop();
 
@@ -121,7 +121,7 @@ function draw() {
   translate(0, 0, 300);
 
     push();
-    translate(50, 0, 0);
+    translate(100, 0, 0);
     image(lineup, 0, 0);
     lineup.resize(0, halfHeight-100);
     pop();
@@ -134,7 +134,7 @@ function draw() {
 
     push();
     translate(halfWidth/2, 0, 0);
-    image(sculpture11, -40, 0);
+    image(sculpture11, 10, 0);
     sculpture11.resize(0, halfHeight * 1.5);
     pop();
 
