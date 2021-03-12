@@ -154,8 +154,6 @@ function draw() {
 
     //fuschia
     directionalLight(247, 161, 0, 0, 0, 1);
-    //including fuschia color in case helen isn't into the orange
-    //198, 0, 212,
 
 
   //
@@ -164,11 +162,13 @@ function draw() {
   for (let i = 0; i < shells.length; i++) {
     shells[i].move();
     shells[i].display();
-  pop();
   }
+  pop();
+
 // handle saving the frame
   // console.log('capturing frame');
   // capturer.capture(canvas);
+
 
 }
 
@@ -180,6 +180,7 @@ class Shells {
     this.y = random(windowHeight);
     this.z - random(windowWidth);
     this.random = random(1, 5);
+
   }
 
   move() {
@@ -192,6 +193,7 @@ class Shells {
   scale(1.05); 
   fill(250, 175, 230);
   model(shell);
+
   }
 }
 
