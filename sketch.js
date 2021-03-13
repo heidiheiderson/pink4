@@ -199,8 +199,8 @@ function draw() {
    //pink
     directionalLight(245, 83, 237, 1, 0, 0);
 
-    //fuschia
-    directionalLight(247, 161, 0, 0, 0, 1);
+    //orange
+    directionalLight(224, 117, 2, 0, 0, 1);
 
 
   //
@@ -238,7 +238,7 @@ class Shells {
 
   display() {
   scale(1.05); 
-  fill(250, 175, 230);
+  fill(255);
   model(shell);
 
   }
