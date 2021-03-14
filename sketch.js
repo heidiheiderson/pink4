@@ -14,6 +14,8 @@ let sculpture11;
 let sculpture12;
 let sculpture13;
 let lineup;
+let pinknoise;
+let hah;
 
 // the frame rate (frames per second)
 var fps = 30;
@@ -28,6 +30,8 @@ function preload() {
   sculpture11 = loadImage('11.png');
   sculpture12 = loadImage('12.png');
   sculpture13 = loadImage('13.png');
+  pinknoise = loadImage('pink_noise_vi.png')
+  hah = loadImage('hah.png')
   lineup = loadImage('lineup_pink4_pink noise.png');
 }
 
@@ -100,6 +104,13 @@ function draw() {
     pop();
 
     push();
+    rotateY(PI);
+    translate(0, 0, 0);
+    image(hah, 25, 500);
+    hah.resize(0, halfHeight-175);
+    pop();
+
+    push();
     translate(halfWidth/2, 0, 0);
     image(sculpture1, 0, 0);
     sculpture1.resize(0, halfHeight * 1.5);
@@ -124,6 +135,12 @@ function draw() {
     translate(100, 0, 0);
     image(lineup, 0, 0);
     lineup.resize(0, halfHeight-100);
+    pop();
+
+    push();
+    translate(0, 0, 0);
+    image(hah, 25, 500);
+    hah.resize(0, halfHeight-175);
     pop();
 
     push();
@@ -188,6 +205,11 @@ function draw() {
   rect(0, halfHeight-150, windowWidth, 300);
   rect(halfWidth-50, 0, 100, windowHeight);
   rect(-halfWidth +50, 0, 100, windowHeight);
+    push();
+      translate(100, 0, 100);
+      image(pinknoise, -1000, 325);
+      pinknoise.resize(0, halfHeight-300);
+      pop();
   pop();
 
   angle += 0.0025;
