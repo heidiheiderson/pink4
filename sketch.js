@@ -17,6 +17,11 @@ let lineup;
 let pinknoise;
 let hah;
 
+var duration;
+
+let t;
+
+
 // the frame rate (frames per second)
 var fps = 30;
 // the canvas capturer instance
@@ -30,8 +35,8 @@ function preload() {
   sculpture11 = loadImage('11.png');
   sculpture12 = loadImage('12.png');
   sculpture13 = loadImage('13.png');
-  pinknoise = loadImage('pink_noise_vi.png')
-  hah = loadImage('hah.png')
+  pinknoise = loadImage('pink noise title left.png');
+  hah = loadImage('hah.png');
   lineup = loadImage('lineup_pink4_pink noise.png');
 }
 
@@ -39,7 +44,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight, WEBGL);
   ocean = loadImage('big.jpg');
   frameRate(fps);
-  // capturer = new CCapture({ format: 'png', framerate: fps });
+  // capturer = new CCapture({ format: 'png', framerate: fps, autoSaveTime: 30 });
 
   // Create objects
   for (let i = 0; i < 40; i++) {
@@ -50,12 +55,11 @@ function setup() {
 
 function draw() {
 
-  //
+  // start the recording on the first frame
+  // this avoids the code freeze which occurs if capturer.start is called
+  // in the setup, since v0.9 of p5.js
 
   //  if (frameCount === 1) {
-  //   // start the recording on the first frame
-  //   // this avoids the code freeze which occurs if capturer.start is called
-  //   // in the setup, since v0.9 of p5.js
   //   capturer.start();
   // }
 
@@ -184,7 +188,7 @@ function draw() {
     pointLight(41, 207, 88, -0.5, -0.5, -1);
     pointLight(41, 60, 207,  0.5, 0.5, 5);
   
-    translate(0, -100, -100);
+    translate(0, 0, -100);
     specularMaterial(255);
     shininess(20);
     plane(windowWidth-10, windowHeight-80);
@@ -206,10 +210,16 @@ function draw() {
   rect(halfWidth-50, 0, 100, windowHeight);
   rect(-halfWidth +50, 0, 100, windowHeight);
     push();
-      translate(100, 0, 100);
-      image(pinknoise, -1000, 325);
-      pinknoise.resize(0, halfHeight-300);
-      pop();
+      translate(-1800, -100, 0);
+      image(pinknoise, 0, 0);
+      pinknoise.resize(0, halfHeight);
+    pop();
+      push();
+      rotateY(PI);
+      translate(-1800, -100, 0);
+      image(pinknoise, 0, 0);
+      pinknoise.resize(0, halfHeight);
+    pop();
   pop();
 
   angle += 0.00075;
